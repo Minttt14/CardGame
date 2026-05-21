@@ -306,7 +306,7 @@ namespace 棋牌類遊戲
             {
                 int drawn = DrawFromPile();
                 hand.Add(drawn);
-                AddLog($"🌟 {playerName} 手牌已空，自動從牌堆補一張牌。");
+                AddLog($"🌟 {playerName} 手牌已空，自動從牌堆補一張牌");
                 return true;
             }
 
@@ -390,7 +390,6 @@ namespace 棋牌類遊戲
 
             lblStatus_P.Text = $"手牌：{playerHand.Count} ｜ 書：{playerBooks.Count}";
 
-            // 【新增防閃爍】：恢復畫面配置並一次性渲染
             flpCard.ResumeLayout();
         }
 
