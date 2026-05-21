@@ -84,7 +84,7 @@ namespace 棋牌類遊戲
             // 1. pnlCB — 電腦B（上方）
             // ══════════════════════════════════════
             pnlCB.Padding = new Padding(10);
-            pnlCB.Height = 150;
+            pnlCB.Height = 130;
             lblCB.Location = new Point((pnlCB.Width - lblCB.Width) / 2, 8);
             lblStatus_B.Location = new Point((pnlCB.Width - lblStatus_B.Width) / 2, 35);
             picCB.Size = new Size(64, 92); // 配合整體縮小
