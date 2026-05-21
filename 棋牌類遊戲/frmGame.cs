@@ -693,31 +693,29 @@ namespace 棋牌類遊戲
                 MessageBox.Show("播放音樂時發生錯誤：" + ex.Message, "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            int[] scores =
-            {
-                playerBooks.Count,
-                aiBooks[0].Count,
-                aiBooks[1].Count,
-                aiBooks[2].Count
-            };
+            int[] scores = { playerBooks.Count, aiBooks[0].Count, aiBooks[1].Count, aiBooks[2].Count };
             string[] names = { "你", "電腦A", "電腦B", "電腦C" };
 
             int max = scores.Max();
+
+            // 找出所有達到最高分的人
             var winners = names.Where((n, i) => scores[i] == max).ToList();
 
-            string winMsg = winners.Contains("你")
-                ? (winners.Count == 1 ? "🎉 你贏了！" : "🤝 平局！")
-                : $"🏆 {string.Join("、", winners)} 獲勝！";
+            string winMsg;
+            if (winners.Count > 1)
+            {
+                winMsg = "🤝 平局！";
+            }
+            else
+            {
+                // 只有一個人最高分的情況
+                winMsg = winners[0] == "你" ? "🎉 你贏了！" : $"🏆 {winners[0]} 獲勝！";
+            }
 
             AddLog("══════════════════════════════════");
             AddLog($"遊戲結束 {winMsg}");
-            for (int i = 0; i < 4; i++)
-                AddLog($"  {names[i]}：{scores[i]} 本書");
-            AddLog("══════════════════════════════════");
-
+            // ... 後續 Log 與介面顯示 ...
             string detail = string.Join("\n\n", names.Select((n, i) => $"{n}：{scores[i]} 本書"));
-
-            // 呼叫絕對不跑版的動態結算畫面
             BuildResultScreen(winMsg, detail);
         }
 
