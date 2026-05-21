@@ -71,9 +71,9 @@ namespace 棋牌類遊戲
                     pnlRule.Width = newPanelWidth;
                 }
 
-                if ((maxRuleHeight + 40) > pnlRule.Height)
+                if ((maxRuleHeight + 30) > pnlRule.Height)
                 {
-                    pnlRule.Height = maxRuleHeight + 40;
+                    pnlRule.Height = maxRuleHeight + 30;
                 }
 
                 // ➔ 關鍵修改：將整個白色的 pnlRule 水平與垂直皆置中（畫面正中間）
@@ -135,8 +135,6 @@ namespace 棋牌類遊戲
 
             // 隱藏目前的開始介面
             this.Hide();
-
-            // 顯示遊戲牌桌
             gameForm.Show();
         }
 
